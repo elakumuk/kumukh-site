@@ -129,7 +129,10 @@
   .story h2 em{color:var(--gold)}
   .story p{font-size:clamp(1.12rem,1.7vw,1.32rem);line-height:1.7;color:#cfc9c1}
   .story p+p{margin-top:1.2em}
-  .facts{display:flex;gap:clamp(20px,5vw,56px);margin-top:44px;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap}
+  .story .lede{font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.4;color:var(--text);font-style:italic}
+  .story .sig{margin-top:26px;font-family:var(--sans);font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
+  .story h2{font-size:clamp(2.6rem,6vw,4.6rem)}
+  .facts{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:clamp(16px,3vw,40px);margin-top:44px;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap}
   .facts div{font-family:var(--sans);font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
   .facts b{display:block;font-family:var(--serif);font-weight:300;font-size:2rem;letter-spacing:0;text-transform:none;color:var(--text);margin-bottom:4px}
 
@@ -256,6 +259,7 @@
     .f .two{grid-template-columns:1fr}
     .grid{grid-template-columns:repeat(2,1fr)}
     .codes .grid4{grid-template-columns:1fr 1fr}
+    .facts{grid-template-columns:1fr 1fr}
     .code:nth-child(3){border-left:0}
     .code:nth-child(n+3){border-top:1px solid var(--line)}
     nav ul li.hide-sm{display:none}
@@ -281,7 +285,7 @@
   <div class="ring r2"></div><div class="ring"></div>
   <div>
     <div class="wordmark" role="img" aria-label="Kumukh"></div>
-    <p class="eyebrow">Maison de Parfum &nbsp;·&nbsp; Istanbul</p>
+    <p class="eyebrow">Maison de Parfum &nbsp;·&nbsp; Extrait &nbsp;·&nbsp; Istanbul</p>
     <p class="tag">Women-founded. Women-made. Since 2021.</p>
     <div class="ctas"><a class="lnk" href="#shop">Discover the collection</a></div>
   </div>
@@ -295,7 +299,7 @@
     </div>
     <div class="products" id="products"></div>
     <div class="duo rv">
-      <div><p class="eyebrow" style="color:var(--muted)">The Pair</p><h3>Fruits du Ciel &amp; Jardin d'Éden</h3><p>One for the day, one for the night. 2 × 50 ml.</p></div>
+      <div><p class="eyebrow" style="color:var(--muted)">The Pair</p><h3>Fruits du Ciel &amp; Jardin d'Éden</h3><p>One for the day, one for the night. Extrait de Parfum, 2 × 50 ml.</p></div>
       <div class="duo-buy"><span class="price" id="pairPrice"></span><button class="btn" data-add-both>Add the pair</button></div>
     </div>
   </div>
@@ -310,7 +314,7 @@
     </div>
     <div class="grid4 rv">
       <div class="code"><p class="n">I</p><h3>Customer first</h3><p>Every order is confirmed personally by the founder, from the first message to delivery.</p></div>
-      <div class="code"><p class="n">II</p><h3>Small batches</h3><p>Made in limited quantities, never mass-produced, so each bottle stays rare.</p></div>
+      <div class="code"><p class="n">II</p><h3>Extrait, always</h3><p>Every composition is an extrait de parfum, made in small batches and never mass-produced.</p></div>
       <div class="code"><p class="n">III</p><h3>Women-made</h3><p>Founded by a woman and made by women, in Istanbul.</p></div>
       <div class="code"><p class="n">IV</p><h3>Shaped by you</h3><p>New compositions begin with what our customers ask for.</p></div>
     </div>
@@ -335,12 +339,14 @@
   <div class="wrap">
     <div class="rv">
       <p class="eyebrow">The House</p>
-      <h2>Founded by a woman,<br><em>made by women.</em></h2>
+      <h2>A perfume<br>that <em>stays.</em></h2>
+      <p class="sig">Ela Kumuk, founder</p>
     </div>
     <div class="rv">
-      <p>Kumukh began in Istanbul in 2021 with one idea: a scent should feel like a memory you chose for yourself. Ela Kumuk founded the house at seventeen and still carries every part of it herself: the compositions, the packaging, the price, the suppliers and every customer.</p>
-      <p>Kumukh is women-founded and women-made. The perfumes are created by women, for anyone who wants to wear a scent with a point of view.</p>
-      <p>Two compositions have come out of the atelier so far, each made in small batches, and new ones are in development. The house grows one customer at a time.</p>
+      <p class="lede">At seventeen, Ela Kumuk went looking for a perfume worth wearing and could not find one.</p>
+      <p>What Istanbul offered was either everywhere or gone within the hour: bottles everyone already owned, and expensive ones that faded before the day had properly begun. A true niche perfume, made with care, that stayed with you after you put it on, was almost impossible to find.</p>
+      <p>So in 2021 she founded her own house, with one rule. A Kumukh fragrance does not disappear after the first spray. Every composition is an extrait de parfum, the most concentrated form of perfume, made to stay on the skin and to keep unfolding long after you have left the room.</p>
+      <p>Every bottle is made in small batches, by women, and every order is still confirmed by Ela herself. Kumukh is not made for everyone. It is made for the person who notices.</p>
       <div class="facts">
         <div><b>2021</b>Founded in Istanbul</div>
         <div><b>100%</b>Women-made</div>
@@ -509,10 +515,10 @@ const STORE = {
   scentNotes: ["Fig", "Oud", "Jasmine", "Neroli", "Saffron", "Amber", "Pistachio", "Sea salt", "Tobacco", "Leather", "Iris", "Cardamom"],
 };
 const PRODUCTS = [
-  { id: "fdc", no: "N° 01", name: "Fruits du Ciel", price: 100, size: "50 ml", art: "assets/art/fruits-du-ciel.svg",
+  { id: "fdc", no: "N° 01", name: "Fruits du Ciel", price: 100, size: "50 ml", conc: "Extrait de Parfum", art: "assets/art/fruits-du-ciel.svg",
     mood: "Sun-warmed fruit over a soft, musky skin.",
     notes: { Top: "Passionfruit, Raspberry, Peach, Pear, Warm Sand", Heart: "Lily of the Valley", Base: "Musk, Vanilla, Patchouli, Sandalwood, Heliotrope" } },
-  { id: "jde", no: "N° 02", name: "Jardin d'Éden", price: 100, size: "50 ml", art: "assets/art/jardin-d-eden.svg",
+  { id: "jde", no: "N° 02", name: "Jardin d'Éden", price: 100, size: "50 ml", conc: "Extrait de Parfum", art: "assets/art/jardin-d-eden.svg",
     mood: "Turkish rose, lit by lychee and bergamot.",
     notes: { Top: "Lychee, Bergamot, Rhubarb", Heart: "Turkish Rose, Vanilla, Peony", Base: "Musk, Cashmeran, Vetiver" } },
 ];
@@ -538,7 +544,7 @@ $("#products").innerHTML = PRODUCTS.map((p, i) => `
       <h3>${p.name}</h3>
       <p class="mood">${p.mood}</p>
       <ul class="pyramid">${Object.entries(p.notes).map(([k, v]) => `<li><span>${k}</span><p>${v}</p></li>`).join("")}</ul>
-      <div class="spec"><span class="price">${fmt(p.price)}</span>${p.size ? `<span>${p.size}</span>` : ""}</div>
+      <div class="spec"><span class="price">${fmt(p.price)}</span><span>${p.conc} · ${p.size}</span></div>
       <div><button class="btn solid" data-add>Add to bag</button></div>
     </div>
   </article>`).join("");
@@ -557,7 +563,7 @@ function render() {
   $("#items").innerHTML = ids.length ? ids.map(id => { const p = byId(id); return `
     <div class="item" data-id="${id}">
       <img src="${p.art}" alt="">
-      <div><h4>${p.name}</h4><p class="spec" style="margin-top:4px">${p.size}</p><div class="qty"><button data-d="-1">−</button><output>${bag[id]}</output><button data-d="1">+</button></div></div>
+      <div><h4>${p.name}</h4><p class="spec" style="margin-top:4px">${p.conc} · ${p.size}</p><div class="qty"><button data-d="-1">−</button><output>${bag[id]}</output><button data-d="1">+</button></div></div>
       <div class="lp">${fmt(p.price * bag[id])}<button class="rm" data-rm>Remove</button></div>
     </div>`; }).join("") : `<p class="empty">Your bag is empty.</p>`;
   $("#items").querySelectorAll(".item").forEach(el => {
