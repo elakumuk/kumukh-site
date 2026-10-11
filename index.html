@@ -32,12 +32,15 @@
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 
   .eyebrow{font-family:var(--sans);font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold)}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-size:.7rem;letter-spacing:.3em;
-       text-transform:uppercase;text-decoration:none;padding:17px 30px;border:1px solid var(--gold-dim);color:var(--text);transition:.4s}
-  .btn:hover{background:var(--gold);color:#111;border-color:var(--gold)}
-  .btn.solid{background:var(--gold);color:#111;border-color:var(--gold)}
-  .btn.solid:hover{background:#efe0c4}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-size:.66rem;letter-spacing:.34em;
+       text-transform:uppercase;text-decoration:none;padding:18px 34px;border:1px solid #3a352f;color:var(--text);transition:.5s}
+  .btn:hover{background:var(--text);color:#0a0a0a;border-color:var(--text)}
+  .btn.solid{background:var(--text);color:#0a0a0a;border-color:var(--text)}
+  .btn.solid:hover{background:transparent;color:var(--text)}
   .btn.full{width:100%}
+  .lnk{font-family:var(--sans);font-size:.66rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;color:var(--text);
+       padding-bottom:8px;border-bottom:1px solid #4a443d;transition:border-color .5s,color .5s}
+  .lnk:hover{border-color:var(--text)}
   .btn:disabled{opacity:.4;cursor:default;pointer-events:none}
 
   /* announcement */
@@ -52,7 +55,7 @@
   nav ul{display:flex;gap:clamp(14px,3vw,34px);list-style:none;align-items:center}
   nav a,.bag-btn{font-family:var(--sans);font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;text-decoration:none}
   .bag-btn{display:flex;align-items:center;gap:8px}
-  .bag-btn .count{min-width:20px;height:20px;border-radius:10px;background:var(--gold);color:#111;display:grid;place-items:center;font-size:.6rem;letter-spacing:0;padding:0 5px}
+  .bag-btn .count{min-width:20px;height:20px;border-radius:10px;background:var(--text);color:#0a0a0a;display:grid;place-items:center;font-size:.6rem;letter-spacing:0;padding:0 5px}
   .bag-btn .count[data-n="0"]{background:transparent;border:1px solid var(--line);color:var(--muted)}
 
   /* hero */
@@ -67,7 +70,7 @@
   @keyframes sheen{0%,100%{background-position:100% 0}50%{background-position:0 0}}
   .hero .eyebrow{margin-top:30px}
   .hero .tag{margin-top:16px;font-style:italic;font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--muted)}
-  .hero .ctas{margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .hero .ctas{margin-top:56px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
   section{padding:clamp(80px,13vw,150px) clamp(16px,6vw,72px)}
   .wrap{max-width:1160px;margin:0 auto}
@@ -76,34 +79,34 @@
   .sec-head p{margin-top:14px;color:var(--muted);font-style:italic;font-size:1.2rem}
 
   /* shop */
-  .shop{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .products{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,44px)}
-  .product{border:1px solid var(--line);background:var(--ink);display:flex;flex-direction:column;transition:border-color .5s}
-  .product:hover{border-color:var(--gold-dim)}
-  .product .art{aspect-ratio:4/5;overflow:hidden;position:relative}
-  .product .art img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s ease}
-  .product:hover .art img{transform:scale(1.04)}
-  .product .badge{position:absolute;top:18px;left:18px;font-family:var(--sans);font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;
-                  padding:8px 12px;background:rgba(6,6,6,.7);border:1px solid var(--gold-dim);color:var(--gold)}
-  .product .body{padding:clamp(22px,3vw,38px);display:flex;flex-direction:column;gap:22px;flex:1}
-  .product .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-  .product h3{font-size:clamp(1.9rem,3.4vw,2.5rem);font-weight:300;font-style:italic}
-  .price{font-family:var(--sans);font-size:.9rem;letter-spacing:.12em;color:var(--gold);white-space:nowrap}
-  .product .mood{color:var(--muted);font-style:italic;font-size:1.12rem;margin-top:-12px}
+  .shop{border-top:1px solid var(--line)}
+  .products{display:grid;gap:clamp(70px,11vw,140px)}
+  .product{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+  .product.flip .art{order:2}
+  .product .art{aspect-ratio:4/5;overflow:hidden;position:relative;border:1px solid var(--line)}
+  .product .art img{width:100%;height:100%;object-fit:cover;transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
+  .product:hover .art img{transform:scale(1.035)}
+  .product .body{display:flex;flex-direction:column;gap:26px;max-width:470px}
+  .product .no{font-family:var(--sans);font-size:.62rem;letter-spacing:.42em;color:var(--muted)}
+  .product h3{font-family:var(--sans);font-weight:300;font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:.32em;text-transform:uppercase;line-height:1.3}
+  .product .mood{color:#bdb6ad;font-style:italic;font-size:clamp(1.25rem,2vw,1.5rem);line-height:1.45;margin-top:-8px}
+  .spec{display:flex;gap:18px;align-items:baseline;font-family:var(--sans);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+  .spec .price{font-family:var(--serif);font-size:1.6rem;letter-spacing:.02em;text-transform:none;color:var(--text)}
+  .price{font-family:var(--serif);color:var(--text)}
   .pyramid{list-style:none}
-  .pyramid li{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--line);align-items:baseline}
+  .pyramid li{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:13px 0;border-top:1px solid var(--line);align-items:baseline}
   .pyramid li:last-child{border-bottom:1px solid var(--line)}
-  .pyramid span{font-family:var(--sans);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+  .pyramid span{font-family:var(--sans);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
   .pyramid p{font-size:1.14rem;font-style:italic;line-height:1.4}
-  .buy{display:flex;gap:12px;margin-top:auto;align-items:stretch}
   .qty{display:flex;align-items:center;border:1px solid var(--line)}
   .qty button{width:42px;height:100%;font-size:1.1rem;color:var(--muted)}
   .qty button:hover{color:var(--text)}
   .qty output{min-width:26px;text-align:center;font-family:var(--sans);font-size:.85rem}
-  .buy .btn{flex:1}
-  .duo{margin-top:clamp(22px,4vw,44px);border:1px solid var(--line);padding:clamp(22px,3vw,34px) clamp(22px,3vw,40px);
-       display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--ink)}
-  .duo h3{font-size:1.7rem;font-weight:300;font-style:italic}
+  .duo{margin-top:clamp(80px,12vw,150px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(30px,4vw,48px) 0;
+       display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .duo-buy{display:flex;gap:26px;align-items:center}
+  .duo-buy .price{font-size:1.6rem}
+  .duo h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;font-style:italic;margin-top:10px}
   .duo p{color:var(--muted);font-size:1.1rem;margin-top:4px}
 
   /* finder */
@@ -239,7 +242,7 @@
   .subtotal b{color:var(--gold);font-weight:400;letter-spacing:.1em;font-size:.9rem}
   [hidden]{display:none!important}
   .drawer .note{font-family:var(--serif);font-size:.98rem;letter-spacing:0;text-transform:none;color:var(--muted);font-style:italic;line-height:1.5}
-  .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;z-index:70;background:var(--gold);color:#111;
+  .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;z-index:70;background:var(--text);color:#0a0a0a;
          font-family:var(--sans);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;padding:14px 22px;transition:.4s;pointer-events:none}
   .toast.on{opacity:1;transform:translate(-50%,0)}
 
@@ -248,7 +251,8 @@
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 
   @media (max-width:860px){
-    .products,.story .wrap,.gift .wrap,.trade-grid,.next .wrap{grid-template-columns:1fr}
+    .product,.story .wrap,.gift .wrap,.trade-grid,.next .wrap{grid-template-columns:1fr}
+    .product.flip .art{order:0}
     .f .two{grid-template-columns:1fr}
     .grid{grid-template-columns:repeat(2,1fr)}
     .codes .grid4{grid-template-columns:1fr 1fr}
@@ -257,12 +261,10 @@
     nav ul li.hide-sm{display:none}
     .hero .eyebrow{letter-spacing:.26em;font-size:.64rem}
   }
-  @media (max-width:480px){ .codes .grid4{grid-template-columns:1fr} .code{border-left:0!important;border-top:1px solid var(--line)} .code:first-child{border-top:0} .opts{grid-template-columns:1fr} .buy{flex-direction:column} .qty{height:50px;justify-content:center} }
+  @media (max-width:480px){ .codes .grid4{grid-template-columns:1fr} .code{border-left:0!important;border-top:1px solid var(--line)} .code:first-child{border-top:0} .opts{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
-
-<div class="announce" id="announce"></div>
 
 <nav id="nav">
   <a href="#top" aria-label="Kumukh home"><div class="mark"></div></a>
@@ -279,12 +281,9 @@
   <div class="ring r2"></div><div class="ring"></div>
   <div>
     <div class="wordmark" role="img" aria-label="Kumukh"></div>
-    <p class="eyebrow">Parfums &nbsp;·&nbsp; Istanbul &nbsp;·&nbsp; Since 2021</p>
-    <p class="tag">A customer-first niche fragrance house from Istanbul.<br>Women-founded. Women-made.</p>
-    <div class="ctas">
-      <a class="btn solid" href="#shop">Shop the collection</a>
-      <a class="btn" href="#finder">Find your scent</a>
-    </div>
+    <p class="eyebrow">Maison de Parfum &nbsp;·&nbsp; Istanbul</p>
+    <p class="tag">Women-founded. Women-made. Since 2021.</p>
+    <div class="ctas"><a class="lnk" href="#shop">Discover the collection</a></div>
   </div>
 </header>
 
@@ -293,12 +292,11 @@
     <div class="sec-head rv">
       <p class="eyebrow">The Collection</p>
       <h2>Two compositions</h2>
-      <p>Made in small batches.</p>
     </div>
     <div class="products" id="products"></div>
     <div class="duo rv">
-      <div><h3>The Pair</h3><p>Both compositions, one for day and one for night.</p></div>
-      <button class="btn" data-add-both>Add both to bag</button>
+      <div><p class="eyebrow" style="color:var(--muted)">The Pair</p><h3>Fruits du Ciel &amp; Jardin d'Éden</h3><p>One for the day, one for the night. 2 × 50 ml.</p></div>
+      <div class="duo-buy"><span class="price" id="pairPrice"></span><button class="btn" data-add-both>Add the pair</button></div>
     </div>
   </div>
 </section>
@@ -511,10 +509,10 @@ const STORE = {
   scentNotes: ["Fig", "Oud", "Jasmine", "Neroli", "Saffron", "Amber", "Pistachio", "Sea salt", "Tobacco", "Leather", "Iris", "Cardamom"],
 };
 const PRODUCTS = [
-  { id: "fdc", no: "N° 01", name: "Fruits du Ciel", price: 100, size: "", art: "assets/art/fruits-du-ciel.svg",
+  { id: "fdc", no: "N° 01", name: "Fruits du Ciel", price: 100, size: "50 ml", art: "assets/art/fruits-du-ciel.svg",
     mood: "Sun-warmed fruit over a soft, musky skin.",
     notes: { Top: "Passionfruit, Raspberry, Peach, Pear, Warm Sand", Heart: "Lily of the Valley", Base: "Musk, Vanilla, Patchouli, Sandalwood, Heliotrope" } },
-  { id: "jde", no: "N° 02", name: "Jardin d'Éden", price: 100, size: "", art: "assets/art/jardin-d-eden.svg",
+  { id: "jde", no: "N° 02", name: "Jardin d'Éden", price: 100, size: "50 ml", art: "assets/art/jardin-d-eden.svg",
     mood: "Turkish rose, lit by lychee and bergamot.",
     notes: { Top: "Lychee, Bergamot, Rhubarb", Heart: "Turkish Rose, Vanilla, Peony", Base: "Musk, Cashmeran, Vetiver" } },
 ];
@@ -529,29 +527,23 @@ const store = {
 };
 let bag = store.get("kumukh-bag", {});
 
-$("#announce").textContent = STORE.announcement;
 $("#faqShip").textContent = STORE.shipsTo;
 
 /* products */
-$("#products").innerHTML = PRODUCTS.map(p => `
-  <article class="product rv" data-id="${p.id}">
-    <div class="art"><img src="${p.art}" alt="${p.name} illustration"><span class="badge">${p.no}</span></div>
+$("#products").innerHTML = PRODUCTS.map((p, i) => `
+  <article class="product rv${i % 2 ? " flip" : ""}" data-id="${p.id}">
+    <div class="art"><img src="${p.art}" alt="${p.name} illustration"></div>
     <div class="body">
-      <div class="top"><h3>${p.name}</h3><span class="price">${fmt(p.price)}${p.size ? " · " + p.size : ""}</span></div>
+      <p class="no">${p.no}</p>
+      <h3>${p.name}</h3>
       <p class="mood">${p.mood}</p>
       <ul class="pyramid">${Object.entries(p.notes).map(([k, v]) => `<li><span>${k}</span><p>${v}</p></li>`).join("")}</ul>
-      <div class="buy">
-        <div class="qty"><button data-q="-1" aria-label="Decrease">−</button><output>1</output><button data-q="1" aria-label="Increase">+</button></div>
-        <button class="btn solid" data-add>Add to bag</button>
-      </div>
+      <div class="spec"><span class="price">${fmt(p.price)}</span>${p.size ? `<span>${p.size}</span>` : ""}</div>
+      <div><button class="btn solid" data-add>Add to bag</button></div>
     </div>
   </article>`).join("");
-
-document.querySelectorAll(".product").forEach(card => {
-  const out = card.querySelector("output");
-  card.querySelectorAll("[data-q]").forEach(b => b.onclick = () => out.value = out.textContent = Math.max(1, +out.textContent + +b.dataset.q));
-  card.querySelector("[data-add]").onclick = () => { add(card.dataset.id, +out.textContent); out.textContent = 1; };
-});
+document.querySelectorAll(".product").forEach(card => card.querySelector("[data-add]").onclick = () => add(card.dataset.id));
+$("#pairPrice").textContent = fmt(PRODUCTS.reduce((t, p) => t + p.price, 0));
 $("[data-add-both]").onclick = () => { PRODUCTS.forEach(p => bag[p.id] = (bag[p.id] || 0) + 1); save(); toast("Both added to your bag"); openBag(); };
 
 /* bag */
@@ -565,7 +557,7 @@ function render() {
   $("#items").innerHTML = ids.length ? ids.map(id => { const p = byId(id); return `
     <div class="item" data-id="${id}">
       <img src="${p.art}" alt="">
-      <div><h4>${p.name}</h4><div class="qty"><button data-d="-1">−</button><output>${bag[id]}</output><button data-d="1">+</button></div></div>
+      <div><h4>${p.name}</h4><p class="spec" style="margin-top:4px">${p.size}</p><div class="qty"><button data-d="-1">−</button><output>${bag[id]}</output><button data-d="1">+</button></div></div>
       <div class="lp">${fmt(p.price * bag[id])}<button class="rm" data-rm>Remove</button></div>
     </div>`; }).join("") : `<p class="empty">Your bag is empty.</p>`;
   $("#items").querySelectorAll(".item").forEach(el => {
@@ -583,7 +575,7 @@ document.addEventListener("keydown", e => e.key === "Escape" && closeBag());
 $("#isGift").onchange = e => $("#giftMsg").hidden = !e.target.checked;
 
 function summary() {
-  const lines = Object.entries(bag).map(([id, n]) => `• ${n} × ${byId(id).name} (${fmt(byId(id).price * n)})`);
+  const lines = Object.entries(bag).map(([id, n]) => `• ${n} × ${byId(id).name} ${byId(id).size} (${fmt(byId(id).price * n)})`);
   let s = `Hello Kumukh, I would like to order:\n${lines.join("\n")}\nSubtotal: ${fmt(total())}`;
   if ($("#isGift").checked) s += `\n\nThis is a gift.${$("#giftMsg").value.trim() ? `\nMessage: "${$("#giftMsg").value.trim()}"` : ""}`;
   return s;
@@ -645,7 +637,7 @@ function quiz() {
   } else {
     const p = byId(votes.fdc >= votes.jde ? "fdc" : "jde");
     el.innerHTML = `<div class="result"><p class="step">Your scent</p><img src="${p.art}" alt=""><h3>${p.name}</h3><p>${p.mood}</p>
-      <div class="row"><button class="btn solid" id="qAdd">Add to bag · ${fmt(p.price)}</button></div>
+      <div class="row"><button class="btn solid" id="qAdd">Add to bag · ${fmt(p.price)} · ${p.size}</button></div>
       <p style="margin-top:22px"><button class="link-btn" id="qAgain">Start again</button></p></div>`;
     $("#qAdd").onclick = () => add(p.id);
     $("#qAgain").onclick = () => { step = 0; votes = { fdc: 0, jde: 0 }; quiz(); };
